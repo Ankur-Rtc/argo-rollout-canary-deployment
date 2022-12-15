@@ -14,17 +14,17 @@ To deploy the first version of your application:
 ```
 git clone https://github.com/Ankur-Rtc/argo-rollout-canary-deployment.git
 cd argo-rollout-canary-deployment/
-helm install example ./canary/
+helm install example .
 ```
 
 Your application will be deployed and exposed via the `example-helm-guestbook` service
 
 ## Perform the second deployment
 
-To deploy the updated version using a Blue/Green strategy:
+To deploy the updated version using a Canary strategy:
 
 ```
-helm upgrade example ./canary/  --set image.tag=1.22
+helm upgrade example .  --set image.tag=1.22
 ```
 
 It will start the upgrade process and will follow the steps defined in strategy. This will promotes container image `nginx:latest` to `green` status and `Rollout` deletes old replica which runs `nginx:1.22`.
